@@ -35,21 +35,25 @@ class HotelSearchRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'location.required'   => __(''),
-            'location.string'   => 'required|string',
-            'check_in.required'   => 'required|date|after_or_equal:today',
-            'check_in.date'   => 'required|date|after_or_equal:today',
-            'check_in.after_or_equal'   => 'required|date|after_or_equal:today',
-            'check_out.required'   => 'required|date|after_or_equal:today',
-            'check_out.date'   => 'required|date|after_or_equal:today',
-            'check_out.after'   => 'required|date|after_or_equal:today',
-            'check_out'  => 'required|date|after:check_in',
-            'guests.integer'     => 'nullable|integer|min:1',
-            'guests.min'     => 'nullable|integer|min:1',
-            'min_price.numeric'  => 'nullable|numeric|min:0',
-            'min_price.min'  => 'nullable|numeric|min:0',
-            'max_price.numeric'  => 'nullable|numeric|gte:min_price',
-            'max_price.gte'  => 'nullable|numeric|gte:min_price',
+            'location.required'       => __('validation.location.required'),
+            'location.string'         => __('validation.location.string'),
+
+            'check_in.required'       => __('validation.check_in.required'),
+            'check_in.date'           => __('validation.check_in.date'),
+            'check_in.after_or_equal' => __('validation.check_in.after_or_equal'),
+
+            'check_out.required'      => __('validation.check_out.required'),
+            'check_out.date'          => __('validation.check_out.date'),
+            'check_out.after'         => __('validation.check_out.after'),
+
+            'guests.integer'          => __('validation.guests.integer'),
+            'guests.min'              => __('validation.guests.min'),
+
+            'min_price.numeric'       => __('validation.min_price.numeric'),
+            'min_price.min'           => __('validation.min_price.min'),
+
+            'max_price.numeric'       => __('validation.max_price.numeric'),
+            'max_price.gte'           => __('validation.max_price.gte'),
         ];
     }
 }
