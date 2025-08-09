@@ -11,7 +11,7 @@ class HotelSearchRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -29,6 +29,27 @@ class HotelSearchRequest extends FormRequest
             'min_price'  => 'nullable|numeric|min:0',
             'max_price'  => 'nullable|numeric|gte:min_price',
             'sort_by'    => 'nullable|in:pricePerNight,rating',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'location.required'   => __(''),
+            'location.string'   => 'required|string',
+            'check_in.required'   => 'required|date|after_or_equal:today',
+            'check_in.date'   => 'required|date|after_or_equal:today',
+            'check_in.after_or_equal'   => 'required|date|after_or_equal:today',
+            'check_out.required'   => 'required|date|after_or_equal:today',
+            'check_out.date'   => 'required|date|after_or_equal:today',
+            'check_out.after'   => 'required|date|after_or_equal:today',
+            'check_out'  => 'required|date|after:check_in',
+            'guests.integer'     => 'nullable|integer|min:1',
+            'guests.min'     => 'nullable|integer|min:1',
+            'min_price.numeric'  => 'nullable|numeric|min:0',
+            'min_price.min'  => 'nullable|numeric|min:0',
+            'max_price.numeric'  => 'nullable|numeric|gte:min_price',
+            'max_price.gte'  => 'nullable|numeric|gte:min_price',
         ];
     }
 }
