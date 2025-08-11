@@ -34,5 +34,11 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
-
+    // config/services.php
+    'hotels_suppliers' => [
+        'supplier_a' => env('SUPPLIER_A_URL', null),
+        'supplier_b' => env('SUPPLIER_B_URL', null),
+        'supplier_c' => env('SUPPLIER_C_URL', null),
+        'supplier_d' => env('SUPPLIER_D_URL', null),
+    ],
 ];
